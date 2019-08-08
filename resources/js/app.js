@@ -1,32 +1,47 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+import Vue from 'vue';
+import axios from 'axios';
 
-require('./bootstrap');
+import Form from './core/Form'
 
-window.Vue = require('vue');
+import Example from './components/Example'
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+// the statements below makes it possible to use the form class and axios anywhere on the application
+window.axios = axios;
+window.Form = Form;
 
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+new Vue({
+    el: '#root',
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+    data: {
+        // skills: [],
+        // name: '',
+        // description: '',
+        form: new Form({
+            name: '',
+            description: '',
+        }),
+        // errors: new Errors(),
 
-const app = new Vue({
-    el: '#app',
-});
+    },
+
+    components: {
+        Example
+    },
+    // mounted(){
+    //     axios.get('/skills').then(response => this.skills = response.data)
+    // },
+
+    methods: {
+        onSubmit(){
+            this.form.submit('post', '/projects')
+            // // alert('Submitting');
+            // axios.post('/projects', this.$data)
+            // // call an onSuccess method which clears the input after submit
+            // .then(this.onSuccess)
+            // .catch(error =>this.form.errors.record(error.response.data.errors))
+        },
+
+       
+    }
+})

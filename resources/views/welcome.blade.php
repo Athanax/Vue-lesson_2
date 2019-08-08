@@ -2,19 +2,18 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {{-- <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
 
         <title>Laravel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="/css/app.css">
 
     </head>
-    <body>
-        <div id="root">
-            <ul>
-                <li v-for="skill in skills">@{{ skill }}</li>
-            </ul>
+    <body style="width:auto">
+        <div class="container bg-primary"id="root" >
+           tghss
         </div>
     </body>
 </html>

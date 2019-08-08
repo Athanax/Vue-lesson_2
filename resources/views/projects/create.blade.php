@@ -2,9 +2,12 @@
 
 @section('content')
 <div id="root">
+    <example></example>
         <div class="container-fluid">
                 @include('projects.list')
             </div>
+            
+
             <div class="container">
                 <form action="/projects" method="post" @submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
                     {{ csrf_field() }}
@@ -27,7 +30,6 @@
 </div>
     
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    
 <script src="/js/app.js"></script>
 @endsection
